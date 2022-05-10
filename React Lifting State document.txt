@@ -1,14 +1,20 @@
 Lifting State Up
+
 Steps to develope a example programme on lifting the states in react
+
 Step 1: Create a react project.
 in command prompt
 >npx create-react-app liftingstate 
+
 Step 2: change the directory into application location
 >cd liftingstate 
+
 Step 3: install routing module dom
 liftingstate>npm install react-router-dom
+
 Step 4: open code in vsCode
 liftingstate>code .
+
 Step 5: add bootstrap CDN links to the project. copy cdn links from browser and paste it in index.html which is available in public Folder
 Step 6: create a Component folder in src along with a file named Counter.js
  
