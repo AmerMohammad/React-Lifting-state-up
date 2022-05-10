@@ -1,0 +1,88 @@
+Lifting State Up
+Steps to develope a example programme on lifting the states in react
+Step 1: Create a react project.
+in command prompt
+>npx create-react-app liftingstate 
+Step 2: change the directory into application location
+>cd liftingstate 
+Step 3: install routing module dom
+liftingstate>npm install react-router-dom
+Step 4: open code in vsCode
+liftingstate>code .
+Step 5: add bootstrap CDN links to the project. copy cdn links from browser and paste it in index.html which is available in public Folder
+Step 6: create a Component folder in src along with a file named Counter.js
+ 
+
+src/Component.Counter.js
+
+import { Component } from "react";
+
+export class Counter extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Counter : {this.props.counter}</h1>
+                <button className="btn btn-success" onClick={this.props.increment}>increment</button>
+                <button className="btn btn-danger" onClick={this.props.decrement}>decrement</button>
+            </div>
+        );
+    }
+}
+export default Counter;
+
+src/App.js
+import React from "react";
+import { Component } from "react";
+import { Counter } from "./components/Counter";
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0,
+    };
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+  }
+
+
+  //A function for increment Button
+  increment = () => {
+    this.setState({
+      counter: this.state.counter + 1,
+    });
+  }
+
+  //A function for Decrement Button
+  decrement = () => {
+    this.setState({
+      counter: this.state.counter - 1,
+    });
+  };
+  render() {
+    return (
+      <div className="container">
+        <div className="card">
+          <div className="card-header">
+            <h1>State Lifting up</h1>
+          </div>
+          <div className="card-body">
+
+            {/* binding the functions  */}
+            <Counter
+              counter={this.state.counter}
+              increment={this.increment}
+              decrement={this.decrement} />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+
+Write these two codes and run the application
+>npm start
+ 
+
